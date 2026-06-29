@@ -12,8 +12,6 @@ use Carp;
 use Getopt::Long;
 
 ###!!! TODO: Match inverse relations with the basic ones (see issue tracker). By default on, optionally can be turned off. Note that most document-level relations can be inverted, too, but in a different manner.
-###!!! TODO: Add a --help option (print usage() and exit).
-###!!! TODO: Move the script to a separate repository (umrtools?)
 ###!!! TODO: Add node mapping criteria so that comparing a file to itself cannot end with any node mapped wrongly (now it can happen when there are multiple unaligned nodes with the same concept and no difference in children or attributes; we only avoid it by also comparing the variables, but those should not matter at all).
 
 sub usage
@@ -26,6 +24,9 @@ sub usage
     print STDERR ("    --verbose ... print detailed node comparison for each sentence. Without this flag, only the final summary will be printed.\n");
     print STDERR ("    --quiet ... supress all partial metrics and explanatory text. Print only the final juːmæʧ F₁ score.\n");
     print STDERR ("    --tsv ... tab-separated values. Omits explanatory prose and produces output that is easier to process automatically.\n");
+    print STDERR ("    --only ... takes comma-separated list of relations/attributes (with or without the leading ':') that should be evaluated, others will be ignored.\n");
+    print STDERR ("    --except ... takes comma-separated list of relations/attributes (with or without the leading ':') that should be excluded from evaluation.\n");
+    print STDERR ("        You can use 'concept' as a special attribute in --only and --except lists.\n");
     print STDERR ("    --help ... print this text and exit.\n");
     print STDERR ("Example (system evaluation):\n");
     print STDERR ("    perl tools/compare_umr.pl GOLD english-test.umr SYSTEM english-test-predicted.umr\n");
