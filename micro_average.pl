@@ -10,31 +10,11 @@ use open ':utf8';
 binmode(STDIN, ':utf8');
 binmode(STDOUT, ':utf8');
 binmode(STDERR, ':utf8');
-use Getopt::Long;
 
 sub usage
 {
     print STDERR ("Usage: $0 eval1.tsv eval2.tsv [eval3.tsv ...] > micro-average-eval.tsv\n");
 }
-
-my $override_system_output_folder;
-my $evaltype = 'eval'; # part of file name to look for, e.g., zh-0036.eval.log
-my $pud = 0; # -1: exclude PUD; +1: only PUD; 0 everything including PUD
-GetOptions
-(
-    'sysoutpath=s' => \$override_system_output_folder,
-    'evaltype=s'   => \$evaltype,
-    'pud=i' => \$pud
-);
-
-my $system_unpacked_folder = $override_system_output_folder // $config::config{system_unpacked_folder};
-# List of language codes and names.
-my %languages = %{$config::config{languages}};
-my @languages = sort {$languages{$a} cmp $languages{$b}} (keys(%languages));
-# List of documents for each language.
-my %test_data = %{$config::config{test_data}};
-# Enhancement type selection for each treebank (only for information in the table).
-my %enhancements = %{$config::config{enhancements}};
 
 if(scalar(@ARGV)==0)
 {
@@ -44,7 +24,7 @@ if(scalar(@ARGV)==0)
 
 # Currently there is this fixed list of metrics that we search for and average.
 # Note that we also know what fields they contain ('node projections' differing from the rest).
-my @metrics = ('aligned token sets', 'node projections', 'triples in mapped nodes', 'juːmæʧ');
+my @metrics = ('number of sentences', 'number of tokens', 'number of nodes', 'aligned token sets', 'node projections', 'triples in mapped nodes', 'juːmæʧ');
 my %score; # indexed by document (file) name
 my %lscore; # total score for "language" (all documents)
 my $label0; # e.g., 'GOLD'
@@ -57,23 +37,48 @@ foreach my $file (@ARGV)
         s/\r?\n$//;
         my @f = split(/\t/);
         my $metric = $f[0];
-        if(!defined($label0))
+        if($metric =~ m/^number of (sentences|nodes)$/)
         {
-            $label0 = $f[1];
+            ###!!! In the current suboptimal output format of compare_umr.pl,
+            ###!!! 'number of sentences' is the first metric but it appears on
+            ###!!! two lines, separately for each data source. Assume that the
+            ###!!! source labels are in the correct order and remember them.
+            if(!defined($label0))
+            {
+                $label0 = $f[1];
+            }
+            elsif(!defined($label1))
+            {
+                $label1 = $f[1];
+            }
+            if($f[1] eq $label0)
+            {
+                $score{document}{$file}{$metric} =
+                {
+                    'total0' => $f[3]
+                };
+                $lscore{$metric}{total0} += $f[3];
+            }
+            elsif($f[1] eq $label1)
+            {
+                $score{document}{$file}{$metric} =
+                {
+                    'total1' => $f[3]
+                };
+                $lscore{$metric}{total1} += $f[3];
+            }
         }
-        elsif($f[1] ne $label0)
+        elsif($metric eq 'number of tokens')
         {
-            print STDERR ("WARNING: Labels of the left source differ! Expected '$label0', found '$f[1]'.\n");
+            $score{document}{$file}{$metric} =
+            {
+                'total0' => $f[3],
+                'total1' => $f[3]
+            };
+            $lscore{$metric}{total0} += $f[3];
+            $lscore{$metric}{total1} += $f[3];
         }
-        if(!defined($label1))
-        {
-            $label1 = $f[2];
-        }
-        elsif($f[2] ne $label1)
-        {
-            print STDERR ("WARNING: Labels of the right source differ! Expected '$label1', found '$f[2]'.\n");
-        }
-        if($metric eq 'node projections')
+        elsif($metric eq 'node projections')
         {
             $score{document}{$file}{$metric} =
             {
@@ -93,6 +98,25 @@ foreach my $file (@ARGV)
         # Avoid unknown metrics. They may have unexpected number or order of fields.
         elsif(grep {$metric eq $_} (@metrics))
         {
+            ###!!! The labels of the two sources compared should be set globally for one evaluation output.
+            ###!!! Unfortunately, the format currently output by compare_umr.pl complicates it. There are lines that have only one or no label at all.
+            ###!!! Therefore we currently do this only on lines with the most standard metrics, most notably, juːmæʧ.
+            if(!defined($label0))
+            {
+                $label0 = $f[1];
+            }
+            elsif($f[1] ne $label0)
+            {
+                print STDERR ("WARNING: Labels of the left source in metric '$metric' differ! Expected '$label0', found '$f[1]'.\n");
+            }
+            if(!defined($label1))
+            {
+                $label1 = $f[2];
+            }
+            elsif($f[2] ne $label1)
+            {
+                print STDERR ("WARNING: Labels of the right source in metric '$metric' differ! Expected '$label1', found '$f[2]'.\n");
+            }
             $score{document}{$file}{$metric} =
             {
                 'correct' => $f[3],
@@ -133,7 +157,7 @@ foreach my $metric (@metrics)
     }
 }
 
-print_tsv($label0, $label1, \%score, @metrics);
+print_tsv($label0, $label1, \%lscore, @metrics);
 
 
 
@@ -148,7 +172,11 @@ sub print_tsv
     my @metrics = @_; # names of metrics to be printed = keys to %{$score}
     foreach my $metric (@metrics)
     {
-        if($metric eq 'node projections')
+        if($metric =~ m/^number of (sentences|tokens|nodes)$/)
+        {
+            print("$metric\t$label0\t$label1\t$score->{$metric}{total0}\t$score->{$metric}{total1}\ttotal0 total1\n");
+        }
+        elsif($metric eq 'node projections')
         {
             print("$metric\t$label0\t$label1\t$score->{$metric}{mapped0}\t$score->{$metric}{mapped1}\t$score->{$metric}{total0}\t$score->{$metric}{total1}\t$score->{$metric}{p}\t$score->{$metric}{r}\t$score->{$metric}{f}\tmapped0 mapped1 total0 total1 p r f\n");
         }
