@@ -1263,7 +1263,7 @@ known_relations = {
     ':experiencer': {'type': 'participant', 'repeat': False},
     ':extent': {'type': 'modifier', 'repeat': True},
     ':force': {'type': 'participant', 'repeat': False},
-    ':frequency': {'type': 'modifier', 'repeat': False},
+    ':frequency': {'type': 'attribute', 'repeat': False}, # similarly to :quant, it can be just a number ("twice" = :frequency 2) or a node
     ':goal': {'type': 'participant', 'repeat': False},
     ':group': {'type': 'modifier', 'repeat': False},
     ':instrument': {'type': 'participant', 'repeat': False},
