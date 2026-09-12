@@ -1305,7 +1305,7 @@ known_relations = {
     ':size': {'type': 'modifier', 'repeat': True},
     ':source': {'type': 'participant', 'repeat': False},
     ':start': {'type': 'participant', 'repeat': False},
-    ':stimulus': {'type': 'participant', 'repeat': False},
+    ':stimulus': {'type': 'participant', 'repeat': True},
     ':subevent': {'type': 'modifier', 'repeat': False},
     ':substitute': {'type': 'modifier', 'repeat': False},
     ':subtraction': {'type': 'modifier', 'repeat': False},
