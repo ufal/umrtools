@@ -1261,7 +1261,7 @@ known_relations = {
     ':era': {'type': 'modifier', 'repeat': False},
     ':example': {'type': 'modifier', 'repeat': True},
     ':experiencer': {'type': 'participant', 'repeat': False},
-    ':extent': {'type': 'modifier', 'repeat': False},
+    ':extent': {'type': 'modifier', 'repeat': True},
     ':force': {'type': 'participant', 'repeat': False},
     ':frequency': {'type': 'modifier', 'repeat': False},
     ':goal': {'type': 'participant', 'repeat': False},
