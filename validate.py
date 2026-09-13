@@ -1345,6 +1345,7 @@ known_relations = {
     ':concessive-conditional': {'type': 'modifier', 'repeat': True},
     ':consist': {'type': 'modifier', 'repeat': True}, # Typically we see ':consist-of' but the code below will think it is an inverted relation, so we must allow ':consist' as well.
     ':conj-as-if': {'type': 'modifier', 'repeat': True},
+    ':prep-against': {'type': 'modifier', 'repeat': True},
     ':prep-as': {'type': 'modifier', 'repeat': True},
     ':prep-for': {'type': 'modifier', 'repeat': True},
     ':prep-from': {'type': 'modifier', 'repeat': True},
