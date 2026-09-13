@@ -1331,7 +1331,13 @@ known_relations = {
     ':parenthesis': {'type': 'modifier', 'repeat': True},
     ':part-of-phraseme': {'type': 'modifier', 'repeat': False},
     ':predicative-noun': {'type': 'modifier', 'repeat': False},
-    ':regard': {'type': 'modifier', 'repeat': True}
+    ':regard': {'type': 'modifier', 'repeat': True},
+    # The following are also not in the guidelines but are so frequent in the
+    # English data converted from AMR that it is hard to see other errors if
+    # we keep reporting these.
+    ':x': {'type': 'modifier', 'repeat': True},
+    ':y': {'type': 'modifier', 'repeat': True},
+    ':z': {'type': 'modifier', 'repeat': True}
 }
 op_re = re.compile(r"^:op([1-9][0-9]*)$")
 
