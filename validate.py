@@ -1235,6 +1235,11 @@ known_relations = {
     ':ARG4': {'type': 'participant', 'repeat': False},
     ':ARG5': {'type': 'participant', 'repeat': False},
     ':ARG6': {'type': 'participant', 'repeat': False},
+    ':ARG7': {'type': 'participant', 'repeat': False}, # publication-91 has :ARG0 through :ARG11!
+    ':ARG8': {'type': 'participant', 'repeat': False},
+    ':ARG9': {'type': 'participant', 'repeat': False},
+    ':ARG10': {'type': 'participant', 'repeat': False},
+    ':ARG11': {'type': 'participant', 'repeat': False},
     ':aspect': {'type': 'attribute', 'repeat': False, 'values': ['habitual', 'generic', 'imperfective', 'inceptive', 'process', 'atelic-process', 'perfective', 'state', 'reversible-state', 'irreversible-state', 'inherent-state', 'point-state', 'activity', 'undirected-activity', 'directed-activity', 'endeavor', 'semelfactive', 'undirected-endeavor', 'directed-endeavor', 'performance', 'incremental-accomplishment', 'nonincremental-accomplishment', 'directed-achievement', 'reversible-directed-achievement', 'irreversible-directed-achievement']},
     ':axis': {'type': 'modifier', 'repeat': True},
     ':beneficiary': {'type': 'participant', 'repeat': False},
