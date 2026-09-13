@@ -1365,7 +1365,24 @@ known_relations = {
     ':prep-without': {'type': 'modifier', 'repeat': True},
     ':list-item': {'type': 'attribute', 'repeat': False},
     # Extra relations in Chinese data follow.
-    ':end-state': {'type': 'attribute', 'repeat': False}
+    ':end-state': {'type': 'attribute', 'repeat': False},
+    ':ordinal-entity': {'type': 'modifier', 'repeat': True},
+    ':content': {'type': 'modifier', 'repeat': True},
+    ':snt1': {'type': 'modifier', 'repeat': True},
+    ':snt2': {'type': 'modifier', 'repeat': True},
+    ':sentence1': {'type': 'modifier', 'repeat': True},
+    ':sentence2': {'type': 'modifier', 'repeat': True},
+    ':sentence3': {'type': 'modifier', 'repeat': True},
+    ':scope': {'type': 'modifier', 'repeat': True},
+    ':ratio': {'type': 'modifier', 'repeat': True},
+    ':level': {'type': 'modifier', 'repeat': True},
+    ':lat': {'type': 'attribute', 'repeat': True},
+    ':long': {'type': 'attribute', 'repeat': True},
+    ':conceiver': {'type': 'modifier', 'repeat': True},
+    ':smood': {'type': 'attribute', 'repeat': True},
+    ':subset': {'type': 'modifier', 'repeat': True},
+    ':compared-to': {'type': 'modifier', 'repeat': True},
+    ':perspective': {'type': 'modifier', 'repeat': True}
 }
 op_re = re.compile(r"^:op([1-9][0-9]*)$")
 
