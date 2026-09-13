@@ -1276,7 +1276,7 @@ known_relations = {
     ':manner': {'type': 'modifier', 'repeat': True},
     ':material': {'type': 'participant', 'repeat': False},
     ':medium': {'type': 'modifier', 'repeat': False},
-    ':mod': {'type': 'modifier', 'repeat': True},
+    ':mod': {'type': 'attribute', 'repeat': True}, # Typically a relation with a child node, but it can also be a number.
     ':modal-predicate': {'type': 'modifier', 'repeat': False}, # Note: The guidelines and the spreadsheet originally defined ':modpred' but it was changed to ':modal-predicate' in UMR 1.0 to make the annotation more human-readable.
     ':modal-strength': {'type': 'attribute', 'repeat': False, 'values': ['full-affirmative', 'partial-affirmative', 'neutral-affirmative', 'neutral-negative', 'partial-negative', 'full-negative']}, # Note: The guidelines and the spreadsheet originally defined ':modstr' but it was changed to ':modal-strength' in UMR 1.0 to make the annotation more human-readable.
     ':mode': {'type': 'attribute', 'repeat': False},
@@ -1339,9 +1339,9 @@ known_relations = {
     # The following are also not in the guidelines but are so frequent in the
     # English data converted from AMR that it is hard to see other errors if
     # we keep reporting these.
-    ':x': {'type': 'modifier', 'repeat': True},
-    ':y': {'type': 'modifier', 'repeat': True},
-    ':z': {'type': 'modifier', 'repeat': True},
+    ':x': {'type': 'attribute', 'repeat': True},
+    ':y': {'type': 'attribute', 'repeat': True},
+    ':z': {'type': 'attribute', 'repeat': True},
     ':concessive-conditional': {'type': 'modifier', 'repeat': True},
     ':consist': {'type': 'modifier', 'repeat': True}, # Typically we see ':consist-of' but the code below will think it is an inverted relation, so we must allow ':consist' as well.
     ':conj-as-if': {'type': 'modifier', 'repeat': True},
