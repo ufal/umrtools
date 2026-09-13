@@ -1363,7 +1363,9 @@ known_relations = {
     ':prep-under': {'type': 'modifier', 'repeat': True},
     ':prep-with': {'type': 'modifier', 'repeat': True},
     ':prep-without': {'type': 'modifier', 'repeat': True},
-    ':list-item': {'type': 'attribute', 'repeat': False}
+    ':list-item': {'type': 'attribute', 'repeat': False},
+    # Extra relations in Chinese data follow.
+    ':end-state': {'type': 'attribute', 'repeat': False}
 }
 op_re = re.compile(r"^:op([1-9][0-9]*)$")
 
