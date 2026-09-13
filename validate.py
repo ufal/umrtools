@@ -1350,7 +1350,7 @@ known_relations = {
     ':prep-from': {'type': 'modifier', 'repeat': True},
     ':prep-in': {'type': 'modifier', 'repeat': True},
     ':prep-on': {'type': 'modifier', 'repeat': True},
-    ':prep-on-behalf-of': {'type': 'modifier', 'repeat': True},
+    ':prep-on-behalf': {'type': 'modifier', 'repeat': True}, # It is :prep-on-behalf-of but it looks like an inverse relation.
     ':prep-to': {'type': 'modifier', 'repeat': True},
     ':prep-under': {'type': 'modifier', 'repeat': True},
     ':prep-with': {'type': 'modifier', 'repeat': True},
