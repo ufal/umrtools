@@ -1339,13 +1339,16 @@ known_relations = {
     ':z': {'type': 'modifier', 'repeat': True},
     ':concessive-conditional': {'type': 'modifier', 'repeat': True},
     ':consist': {'type': 'modifier', 'repeat': True}, # Typically we see ':consist-of' but the code below will think it is an inverted relation, so we must allow ':consist' as well.
+    ':conj-as-if': {'type': 'modifier', 'repeat': True},
     ':prep-for': {'type': 'modifier', 'repeat': True},
+    ':prep-from': {'type': 'modifier', 'repeat': True},
     ':prep-in': {'type': 'modifier', 'repeat': True},
     ':prep-on': {'type': 'modifier', 'repeat': True},
     ':prep-to': {'type': 'modifier', 'repeat': True},
     ':prep-under': {'type': 'modifier', 'repeat': True},
     ':prep-with': {'type': 'modifier', 'repeat': True},
-    ':prep-without': {'type': 'modifier', 'repeat': True}
+    ':prep-without': {'type': 'modifier', 'repeat': True},
+    ':list-item': {'type': 'attribute', 'repeat': False}
 }
 op_re = re.compile(r"^:op([1-9][0-9]*)$")
 
