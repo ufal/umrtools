@@ -1262,7 +1262,7 @@ known_relations = {
     ':direction': {'type': 'modifier', 'repeat': True},
     ':domain': {'type': 'modifier', 'repeat': False},
     ':duration': {'type': 'modifier', 'repeat': True},
-    ':era': {'type': 'modifier', 'repeat': False},
+    ':era': {'type': 'attribute', 'repeat': False},
     ':example': {'type': 'modifier', 'repeat': True},
     ':experiencer': {'type': 'participant', 'repeat': False},
     ':extent': {'type': 'modifier', 'repeat': True},
