@@ -1249,7 +1249,6 @@ known_relations = {
     ':concessive-condition': {'type': 'modifier', 'repeat': True},
     ':condition': {'type': 'modifier', 'repeat': True},
     ':configuration': {'type': 'modifier', 'repeat': True},
-    ':consist-of': {'type': 'modifier', 'repeat': False},
     ':day': {'type': 'attribute', 'repeat': False},
     ':dayperiod': {'type': 'attribute', 'repeat': False},
     ':decade': {'type': 'attribute', 'repeat': False},
@@ -1339,6 +1338,7 @@ known_relations = {
     ':y': {'type': 'modifier', 'repeat': True},
     ':z': {'type': 'modifier', 'repeat': True},
     ':concessive-conditional': {'type': 'modifier', 'repeat': True},
+    ':consist': {'type': 'modifier', 'repeat': True}, # Typically we see ':consist-of' but the code below will think it is an inverted relation, so we must allow ':consist' as well.
     ':prep-for': {'type': 'modifier', 'repeat': True},
     ':prep-in': {'type': 'modifier', 'repeat': True},
     ':prep-on': {'type': 'modifier', 'repeat': True},
