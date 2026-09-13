@@ -1344,6 +1344,8 @@ known_relations = {
     ':z': {'type': 'attribute', 'repeat': True},
     ':range-start': {'type': 'modifier', 'repeat': True},
     ':range-trajectory': {'type': 'modifier', 'repeat': True},
+    ':rise-axis': {'type': 'modifier', 'repeat': True},
+    ':run-axis': {'type': 'modifier', 'repeat': True},
     ':FR': {'type': 'modifier', 'repeat': True},
     ':framework': {'type': 'modifier', 'repeat': True},
     ':concessive-conditional': {'type': 'modifier', 'repeat': True},
