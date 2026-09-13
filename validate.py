@@ -1342,6 +1342,9 @@ known_relations = {
     ':x': {'type': 'attribute', 'repeat': True},
     ':y': {'type': 'attribute', 'repeat': True},
     ':z': {'type': 'attribute', 'repeat': True},
+    ':range-start': {'type': 'modifier', 'repeat': True},
+    ':range-trajectory': {'type': 'modifier', 'repeat': True},
+    ':FR': {'type': 'modifier', 'repeat': True},
     ':concessive-conditional': {'type': 'modifier', 'repeat': True},
     ':consist': {'type': 'modifier', 'repeat': True}, # Typically we see ':consist-of' but the code below will think it is an inverted relation, so we must allow ':consist' as well.
     ':conj-as-if': {'type': 'modifier', 'repeat': True},
