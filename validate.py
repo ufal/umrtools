@@ -1337,7 +1337,15 @@ known_relations = {
     # we keep reporting these.
     ':x': {'type': 'modifier', 'repeat': True},
     ':y': {'type': 'modifier', 'repeat': True},
-    ':z': {'type': 'modifier', 'repeat': True}
+    ':z': {'type': 'modifier', 'repeat': True},
+    ':concessive-conditional': {'type': 'modifier', 'repeat': True},
+    ':prep-for': {'type': 'modifier', 'repeat': True},
+    ':prep-in': {'type': 'modifier', 'repeat': True},
+    ':prep-on': {'type': 'modifier', 'repeat': True},
+    ':prep-to': {'type': 'modifier', 'repeat': True},
+    ':prep-under': {'type': 'modifier', 'repeat': True},
+    ':prep-with': {'type': 'modifier', 'repeat': True},
+    ':prep-without': {'type': 'modifier', 'repeat': True}
 }
 op_re = re.compile(r"^:op([1-9][0-9]*)$")
 
