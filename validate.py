@@ -1347,6 +1347,7 @@ known_relations = {
     ':conj-as-if': {'type': 'modifier', 'repeat': True},
     ':prep-against': {'type': 'modifier', 'repeat': True},
     ':prep-as': {'type': 'modifier', 'repeat': True},
+    ':prep-by': {'type': 'modifier', 'repeat': True},
     ':prep-for': {'type': 'modifier', 'repeat': True},
     ':prep-from': {'type': 'modifier', 'repeat': True},
     ':prep-in': {'type': 'modifier', 'repeat': True},
