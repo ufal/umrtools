@@ -1401,7 +1401,7 @@ def validate_relations(sentence, node_dict, args):
                         values = ['+', '-']
                     # :ARG1 of rate-entity-91 has numeric value
                     # :ARG2 of have-quant-91 has numeric value
-                    if r['relation'] == ':ARG1' and node['concept'] == 'rate-entity-91' or r['relation'] == ':ARG2' and node['concept'] == 'have-quant-91':
+                    if r['relation'] == ':ARG1' and node['concept'] == 'rate-entity-91' or r['relation'] == ':ARG2' and node['concept'] == 'have-quant-91' or r['relation'] == ':ARG2' and node['concept'] == 'have-modal-strength-91':
                         type = 'attribute'
                     if type != 'attribute':
                         if r['type'] != 'node':
