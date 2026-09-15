@@ -1330,7 +1330,7 @@ known_relations = {
     ':according-to': {'type': 'modifier', 'repeat': False}, # child node is the source of the information
     ':clausal-marker': {'type': 'modifier', 'repeat': True},
     ':comparison': {'type': 'modifier', 'repeat': False},
-    ':contrast-91': {'type': 'modifier', 'repeat': True}, ###!!! probably a conversion error; should be removed!
+    ':contrast': {'type': 'modifier', 'repeat': True}, ###!!! probably a conversion error; should be removed!
     ':effect': {'type': 'modifier', 'repeat': True},
     ':interjection': {'type': 'modifier', 'repeat': True},
     ':parenthesis': {'type': 'modifier', 'repeat': True},
