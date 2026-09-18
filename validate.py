@@ -1257,7 +1257,7 @@ known_relations = {
     ':day': {'type': 'attribute', 'repeat': False},
     ':dayperiod': {'type': 'attribute', 'repeat': False},
     ':decade': {'type': 'attribute', 'repeat': False},
-    ':degree': {'type': 'attribute', 'repeat': False},
+    ':degree': {'type': 'attribute', 'repeat': True},
     ':destination': {'type': 'modifier', 'repeat': True},
     ':direction': {'type': 'modifier', 'repeat': True},
     ':domain': {'type': 'modifier', 'repeat': False},
@@ -1267,7 +1267,7 @@ known_relations = {
     ':experiencer': {'type': 'participant', 'repeat': False},
     ':extent': {'type': 'modifier', 'repeat': True},
     ':force': {'type': 'participant', 'repeat': False},
-    ':frequency': {'type': 'attribute', 'repeat': False}, # similarly to :quant, it can be just a number ("twice" = :frequency 2) or a node
+    ':frequency': {'type': 'attribute', 'repeat': True}, # similarly to :quant, it can be just a number ("twice" = :frequency 2) or a node
     ':goal': {'type': 'participant', 'repeat': False},
     ':group': {'type': 'modifier', 'repeat': False},
     ':instrument': {'type': 'participant', 'repeat': False},
